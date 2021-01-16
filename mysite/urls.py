@@ -20,3 +20,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
 ]
+#from django.contrib import admin
+#from django.urls import path
+#from blog.views import post_create, post_edit, post_delete
+
+#urlpatterns = [
+ #   path('blog/create/', post_create, name='post_create'),
+  #  path('blog/edit/<int:pk>/', post_edit, name='post_edit'),
+   # path('blog/delete/<int:pk>/', post_delete, name='post_delete'),
+   # path('admin/', admin.site.urls),
+#]
