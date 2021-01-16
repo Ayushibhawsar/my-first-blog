@@ -1,18 +1,24 @@
 from django.shortcuts import render
+from django.template.backends import django
 
 from django.utils import timezone
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render, get_object_or_404
+#from django.views.generic import ListView, DetailView
 
 from .models import Post
+
 
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
-
-class HomeView(ListView):
+    #class HomeView(ListView):s
     model = Post
     template_name = "home.html"
+
+def post_detail(request, pk):
+        post = get_object_or_404(Post, pk=pk)
+        return render(request, 'blog/post_detail.html', {'post': post})
 
 # Create your views here.
